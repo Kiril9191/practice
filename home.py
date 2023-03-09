@@ -1,0 +1,25 @@
+import time
+from selenium import webdriver
+driver = webdriver.Chrome()
+driver.maximize_window()
+driver.get("https://practice.automationtesting.in/")
+driver.execute_script("window.scrollBy(0, 600);")
+time.sleep(3)
+selenium = driver.find_element_by_css_selector("[data-product_id='160']")
+selenium.click()
+time.sleep(3)
+reviews_btn = driver.find_element_by_class_name("reviews_tab")
+reviews_btn.click()
+star = driver.find_element_by_class_name("star-5")
+star.click()
+comment = driver.find_element_by_name("comment")
+comment.send_keys("Nice book!")
+name = driver.find_element_by_name("author")
+name.send_keys("Kiril")
+email = driver.find_element_by_name("email")
+email.send_keys("1@rambler.ru")
+submit_btn = driver.find_element_by_name("submit")
+submit_btn.click()
+driver.quit()
+
+
